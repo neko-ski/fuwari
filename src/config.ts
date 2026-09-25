@@ -30,12 +30,11 @@ export const siteConfig: SiteConfig = {
 		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
 	},
 	favicon: [
-		// Leave this array empty to use the default favicon
-		// {
-		//   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-		//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-		// }
+		{ src: "/favicon/suna-16.png", sizes: "16x16" },
+		{ src: "/favicon/suna-32.png", sizes: "32x32" },
+		{ src: "/favicon/suna-48.png", sizes: "48x48" },
+		{ src: "/favicon/suna-180.png", sizes: "180x180" },
+		{ src: "/favicon/suna-192.png", sizes: "192x192" },
 	],
 };
 
