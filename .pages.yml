@@ -1,0 +1,69 @@
+# Pages CMS configuration for the existing Fuwari content schema.
+# public/ is served from / (astro.config.mjs uses base: "/").
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: posts
+    label: 文章
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    subfolders: true
+    filename: "{primary}.md"
+    view:
+      fields: [title, published, draft, category]
+      primary: title
+      sort: [published, title, updated]
+      default:
+        sort: published
+        order: desc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: published
+        label: 发布日期
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: updated
+        label: 更新日期
+        type: date
+        default: ""
+        description: 可留空；需要显示更新日期时再填写。
+        options:
+          format: yyyy-MM-dd
+      - name: draft
+        label: 草稿
+        type: boolean
+        default: false
+        description: 开启后，文章不会显示在正式网站上。
+      - name: description
+        label: 摘要
+        type: text
+      - name: image
+        label: 封面图片
+        type: image
+        description: 新图片上传至 public/uploads；现有文章的相对图片路径可保留。
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: category
+        label: 分类
+        type: string
+      - name: lang
+        label: 语言
+        type: string
+        description: 可留空以使用站点默认语言，例如 zh_CN、en、ja。
+      - name: body
+        label: 正文
+        type: rich-text
+        description: 含数学公式、提示块、嵌入 HTML 或特殊代码块的文章，建议使用 Source 模式编辑。
+        options:
+          format: markdown
+          switcher: true
