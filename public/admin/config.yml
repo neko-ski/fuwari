@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.221.1/schema/sveltia-cms.json
+backend:
+  name: github
+  repo: neko-ski/fuwari
+  branch: main
+
+site_url: https://blog.23365535.xyz
+display_url: https://blog.23365535.xyz
+media_folder: public/uploads
+public_folder: /uploads
+publish_mode: simple
+output:
+  # Fuwari's optional date must be absent rather than null or an empty string.
+  omit_empty_optional_fields: true
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: src/content/posts
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    nested:
+      subfolders: false
+    summary: "{{title}}"
+    sortable_fields: [published, title, updated]
+    editor:
+      preview: false
+    fields:
+      - { name: title, label: 标题, widget: string }
+      - name: published
+        label: 发布日期
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+        default: "{{now}}"
+      - name: updated
+        label: 更新日期
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+        required: false
+        default: ""
+        hint: 可留空，需要显示更新日期时再填写。
+      - { name: draft, label: 草稿, widget: boolean, default: false, required: false, hint: 开启后不显示在正式网站上。 }
+      - { name: description, label: 摘要, widget: text, required: false }
+      - { name: image, label: 封面图片, widget: image, required: false }
+      - { name: tags, label: 标签, widget: list, required: false }
+      - { name: category, label: 分类, widget: string, required: false }
+      - { name: lang, label: 语言, widget: string, required: false, hint: 留空使用站点默认语言，例如 zh_CN、en、ja。 }
+      - name: body
+        label: 正文
+        widget: markdown
+        required: false
+        hint: 含公式、提示块或嵌入 HTML 的文章请使用源码模式；实际效果以博客为准。
