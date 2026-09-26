@@ -3,6 +3,7 @@ backend:
   name: github
   repo: neko-ski/fuwari
   branch: main
+  base_url: https://sveltia-cms-auth.walladi.workers.dev
 
 site_url: https://blog.23365535.xyz
 display_url: https://blog.23365535.xyz
