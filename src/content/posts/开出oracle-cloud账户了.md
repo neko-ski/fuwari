@@ -4,7 +4,6 @@ published: 2026-10-21
 updated: 2026-10-21
 draft: false
 description: 开出oracle cloud 账户了，特此纪念。
-image: /uploads/1611.jpg
 tags:
   - 杂谈
 category: 纯水
