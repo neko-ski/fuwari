@@ -10,3 +10,7 @@ category: 纯水
 ---
 
 如题，成功使用中国银行bilibili联名万事达借记卡开出Oracle cloud 账户并升级付费成功，特此纪念。
+
+![](/uploads/Oracle.jpg)
+
+![](/uploads/Oracle%202.jpg)
